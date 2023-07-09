@@ -1,7 +1,10 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { Oxygen } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
+
+import { ModalProvider } from '@/providers/modal-provider'
+
+import './globals.css'
 
 const forum = Oxygen({
   weight: '400',
@@ -21,7 +24,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={forum.className}>{children}</body>
+        <body className={forum.className}>
+          <ModalProvider />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   )
