@@ -2,22 +2,7 @@ import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 
 import prismadb from "@/lib/prismadb"
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const store = await prismadb.store.findFirst({
-        where: {
-            id: params.storeId,
-        }
-    })
-
-    if(!store){
-        return
-    }
-
-    return {
-      title: `${store?.name} | Dashboard`,
-    };
-}
+import Navbar from "@/components/navbar"
 
 export default async function DashboardLayout ({
     children,
@@ -43,7 +28,7 @@ export default async function DashboardLayout ({
 
     return (
         <>
-            <div> NAVBAR </div>
+            <Navbar />
             {children}
         </>        
     )
