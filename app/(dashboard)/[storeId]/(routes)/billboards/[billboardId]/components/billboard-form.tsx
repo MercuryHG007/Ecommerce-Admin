@@ -22,7 +22,6 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form"
-import { ApiAlert } from "@/components/ui/api-alert"
 import { AlertModal } from "@/components/modals/alert-modal"
 import ImageUpload from "@/components/ui/image-upload"
 
@@ -184,7 +183,6 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                 </form>
             </Form>
             <Separator />
-
         </>
     )
 }

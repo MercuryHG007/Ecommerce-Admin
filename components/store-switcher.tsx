@@ -69,7 +69,7 @@ export default function StoreSwitcher({
                     variant='outline'
                     size="sm"
                     role="combobox"
-                    aria-expanded={open}
+                    // aria-expanded={open}
                     aria-label="Select a store"
                     className={cn(
                         "w-[200px] justify-between",
