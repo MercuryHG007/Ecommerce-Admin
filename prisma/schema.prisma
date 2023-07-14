@@ -30,6 +30,7 @@ model Billboard {
   storeId    String
   store      Store      @relation("StoreToBillboard", fields: [storeId], references: [id])
   label      String
+  labelColor String     @default("#000000")
   imageUrl   String
   categories Category[]
   createdAt  DateTime   @default(now())

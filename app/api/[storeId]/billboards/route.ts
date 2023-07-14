@@ -13,6 +13,7 @@ export async function POST(
         const body = await req.json()
         const {
             label,
+            labelColor,
             imageUrl
         } = body
 
@@ -39,6 +40,10 @@ export async function POST(
             return new NextResponse('Label is required', { status: 400 })
         }
 
+        if (!labelColor) {
+            return new NextResponse('LabelColor is required', { status: 400 })
+        }
+
         if (!imageUrl) {
             return new NextResponse('ImageURL is required', { status: 400 })
         }
@@ -46,6 +51,7 @@ export async function POST(
         const billboard = await prismadb.billboard.create({
             data: {
                 label,
+                labelColor,
                 imageUrl,
                 storeId: params.storeId
             }

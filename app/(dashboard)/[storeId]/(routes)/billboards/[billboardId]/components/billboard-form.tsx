@@ -27,6 +27,9 @@ import ImageUpload from "@/components/ui/image-upload"
 
 const formSchema = z.object({
     label: z.string().min(1),
+    labelColor: z.string().min(4).regex(/^#/, {
+        message: 'String must be a valid hex code'
+    }),
     imageUrl: z.string().min(1)
 })
 
@@ -44,6 +47,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
         resolver: zodResolver(formSchema),
         defaultValues: initialData || {
             label: '',
+            labelColor: '',
             imageUrl: ''
         }
     })
@@ -168,6 +172,33 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                                             placeholder="Billboard Label"
                                             {...field}
                                         />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="labelColor"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Label Color</FormLabel>
+                                    <FormControl>
+                                        <div
+                                            className="flex items-center gap-x-4 "
+                                        >
+                                            <Input
+                                                disabled={isLoading}
+                                                placeholder="Color Value"
+                                                {...field}
+                                            />
+                                            <div
+                                                className="border p-4 rounded-full"
+                                                style={{
+                                                    backgroundColor: field.value
+                                                }}
+                                            />
+                                        </div>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
