@@ -118,7 +118,7 @@ export function MobileNav({
                                 <Link
                                     href={route.href}
                                     className={cn(
-                                        "flex text-sm font-medium transition-colors hover:text-primary ",
+                                        "flex items-center text-sm font-medium transition-colors hover:text-primary ",
                                         route.active ? 'font-semibold text-black dark:text-white' : 'text-muted-foreground'
                                     )}
                                 >

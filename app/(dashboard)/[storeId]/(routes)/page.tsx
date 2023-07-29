@@ -46,9 +46,11 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({
                 />
                 <Separator />
                 <div
-                    className="grid gap-4 grid-cols-3 "
+                    className="grid gap-4 grid-cols-2 md:grid-cols-3 "
                 >
-                    <Card>
+                    <Card
+                        className="col-span-2 md:col-span-1 "
+                    >
                         <CardHeader
                             className="flex flex-row items-center justify-between space-y-0 pb-2 "
                         >
