@@ -5,6 +5,7 @@ import prismadb from "@/lib/prismadb"
 import { MainNav } from "@/components/main-nav"
 import StoreSwitcher from "@/components/store-switcher"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { MobileNav } from "./mobile-nav"
 
 const Navbar = async() => {
 
@@ -36,6 +37,7 @@ const Navbar = async() => {
                     className="ml-auto flex items-center space-x-4 "
                 >
                     <ThemeToggle />
+                    <MobileNav />
                     <UserButton
                         afterSignOutUrl="/"
                     />
